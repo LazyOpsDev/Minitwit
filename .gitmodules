@@ -1,0 +1,13 @@
+[submodule "backend"]
+	path = backend
+	url = git@github.com:LazyOpsDev/Minitwit.Backend.git
+	branch = develop
+
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:LazyOpsDev/Minitwit.Frontend.git
+	branch = develop
+[submodule "storage"]
+	path = storage
+	url = git@github.com:LazyOpsDev/Minitwit.Storage.git
+	branch = develop
