@@ -2,6 +2,7 @@
 	path = backend
 	url = git@github.com:LazyOpsDev/Minitwit.Backend.git
 	branch = develop
+
 [submodule "frontend"]
 	path = frontend
 	url = git@github.com:LazyOpsDev/Minitwit.Frontend.git
