@@ -1,0 +1,72 @@
+digraph G {
+	size="8,5"
+
+        node [shape = doublecircle]; "DigitalOcean", "Travis CI", "DockerHub";
+        node [shape = circle];
+
+	subgraph cluster_0 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		label = "droplet #1";
+		"Ubuntu 18.04.03" -> frontend;
+		subgraph cluster_1 {
+			style=filled;
+			color=grey;
+			node [style=filled,color=white];
+			label = "container";	
+			frontend;	
+		}
+	}
+
+	subgraph cluster_2 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		label = "droplet #2";
+		"Ubuntu 18.04.03 " -> backend;
+		"Ubuntu 18.04.03 " -> db;
+		subgraph cluster_3 {
+			style=filled;
+			color=grey;
+			node [style=filled,color=white];
+			label = "container";	
+			backend;
+		}
+		subgraph cluster_4 {
+			style=filled;
+			color=grey;
+			node [style=filled,color=white];
+			label = "container";	
+			db;	
+		}
+	}
+
+  	"Minitwit" -> "DigitalOcean" [ label = "deployed on" ];
+	"Minitwit" -> "Travis CI" [ label = "" ];
+	"Minitwit" -> "DockerHub" [ label = "stores artifacts on" ];
+
+	"Travis CI" -> "DockerHub" [ label = "delivers to" ];
+
+	"DigitalOcean" -> "Ubuntu 18.04.03";
+	"DigitalOcean" -> "Ubuntu 18.04.03 ";
+	"DigitalOcean" -> "staging env for droplet #2";
+
+
+	"Ubuntu 18.04.03" -> "docker" [color="0.515 0.762 0.762"];
+	"Ubuntu 18.04.03 " -> "docker swarm" [color="0.515 0.762 0.762"];
+
+	"docker swarm" -> "backend" [ label = "" ];
+	"docker swarm" -> "db" [ label = "" ];
+	"docker" -> "frontend" [ label = "" ];
+
+	"docker swarm" -> "DockerHub" [ label = "pulls image" ];
+	"docker" -> "DockerHub" [ label = "pulls image" ];
+
+	"backend" -> "C#" [color="0.515 0.762 0.762"];
+	"backend" -> ".NET" [color="0.515 0.762 0.762"];
+
+	 "frontend" -> "Flutter" [color="0.515 0.762 0.762"];
+
+	"db" -> "MySQL" [color="0.515 0.762 0.762"];
+}
