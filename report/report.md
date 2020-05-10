@@ -93,10 +93,6 @@ Here all interfaces are made explicit, except for the logging interface. The ora
 This subsection will describe how our system is structured in terms of deployment with regards to hosting, nodes and orchestration.
 
 
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/Report3.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
 ![alt_text](images/deployment.png "image_tooltip")
 
 
@@ -209,7 +205,7 @@ Our frontend also depends on the Flutter SDK. We will omit dependencies among vi
 ![alt_text](images/deps_full.png "image_tooltip")
 
 
-The above diagram displays the dependencies of the backend API on multiple levels of abstractions; including infrastructure code, artifacts and services, and is color-coded to show how dependencies developed throughout the project. The bold arrows display a dependency cycle, which is typically bad practice, however this is okay because it is part of the continuous delivery pipeline. Also, not that the docker images are pushed and pulled from DockerHub, but this is omitted.
+The above diagram displays the dependencies of the backend API on multiple levels of abstractions; including infrastructure code, artifacts and services, and is color-coded to show how dependencies developed throughout the project. The bold arrows display a dependency cycle, which is typically bad practice, however this is okay because it is part of the continuous delivery pipeline. Also, note that the docker images are pushed and pulled from DockerHub, but this is omitted.
 
 
 ## Application Infrastructure
